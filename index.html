@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <title>Happy Birthday Maryam</title>
@@ -7,129 +7,151 @@
 <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
 
 <style>
-
 body{
-margin:0;
-font-family:'Poppins',sans-serif;
-text-align:center;
-background:#111;
-color:white;
-overflow:hidden;
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  text-align:center;
+  overflow:hidden;
+  background:#111;
+  color:white;
 }
 
-/* intro screen */
-
+/* Intro screen */
 #intro{
-position:absolute;
-width:100%;
-height:100%;
-background:#111;
-display:flex;
-justify-content:center;
-align-items:center;
-font-size:40px;
-font-family:'Pacifico',cursive;
-animation:fadeOut 4s forwards;
-animation-delay:4s;
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:#111;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:40px;
+  font-family:'Pacifico',cursive;
+  animation:fadeOut 4s forwards;
+  animation-delay:4s;
 }
 
 @keyframes fadeOut{
-to{opacity:0;visibility:hidden;}
+  to{opacity:0;visibility:hidden;}
 }
 
-/* birthday screen */
-
+/* Main birthday screen */
 #main{
-display:none;
-background:linear-gradient(135deg,#ff9a9e,#fad0c4);
-height:100vh;
-padding-top:120px;
+  display:none;
+  background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+  height:100vh;
+  padding-top:120px;
 }
 
 h1{
-font-family:'Pacifico',cursive;
-font-size:65px;
-text-shadow:0 6px 20px rgba(0,0,0,0.4);
+  font-family:'Pacifico',cursive;
+  font-size:65px;
+  text-shadow:0 6px 20px rgba(0,0,0,0.4);
 }
 
 button{
-padding:16px 34px;
-font-size:18px;
-border:none;
-border-radius:30px;
-background:#ff4d6d;
-color:white;
-cursor:pointer;
-margin-top:30px;
+  padding:16px 34px;
+  font-size:18px;
+  border:none;
+  border-radius:30px;
+  background:#ff4d6d;
+  color:white;
+  cursor:pointer;
+  margin-top:30px;
+}
+
+button:hover{
+  transform:scale(1.05);
 }
 
 .hidden{
-display:none;
+  display:none;
 }
 
 .message{
-background:white;
-color:#333;
-padding:30px;
-border-radius:20px;
-max-width:700px;
-margin:auto;
-font-size:20px;
-margin-top:40px;
+  background:white;
+  color:#333;
+  padding:35px;
+  border-radius:20px;
+  max-width:700px;
+  margin:auto;
+  font-size:20px;
+  margin-top:40px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.3);
 }
 
 .animals{
-font-size:65px;
-margin-top:20px;
-animation:bounce 1s infinite alternate;
+  font-size:65px;
+  margin-top:20px;
+  animation:bounce 1s infinite alternate;
 }
 
 @keyframes bounce{
-from{transform:translateY(0)}
-to{transform:translateY(-20px)}
+  from{transform:translateY(0)}
+  to{transform:translateY(-20px)}
 }
 
 .balloon{
-position:absolute;
-bottom:-100px;
-width:60px;
-height:80px;
-border-radius:50%;
-animation:float 8s infinite;
+  position:absolute;
+  bottom:-100px;
+  width:60px;
+  height:80px;
+  border-radius:50%;
+  animation:float 8s infinite;
 }
 
 .balloon:after{
-content:'';
-position:absolute;
-width:2px;
-height:80px;
-background:#555;
-left:50%;
-top:80px;
+  content:'';
+  position:absolute;
+  width:2px;
+  height:80px;
+  background:#555;
+  left:50%;
+  top:80px;
 }
 
 @keyframes float{
-0%{transform:translateY(0)}
-100%{transform:translateY(-120vh)}
+  0%{transform:translateY(0)}
+  100%{transform:translateY(-120vh)}
 }
 
 .gift{
-font-size:90px;
-margin-top:40px;
-cursor:pointer;
+  font-size:90px;
+  margin-top:40px;
+  cursor:pointer;
 }
 
 .treasure{
-font-size:40px;
-color:#ffd700;
-margin-top:30px;
-font-weight:bold;
+  font-size:40px;
+  color:#ffd700;
+  margin-top:30px;
+  font-weight:bold;
 }
 
+.stars{
+  position:absolute;
+  width:100%;
+  height:100%;
+  background-image:radial-gradient(white 1px, transparent 1px);
+  background-size:50px 50px;
+  opacity:0.3;
+}
+
+/* Mute/Unmute button */
+#muteBtn{
+  position:fixed;
+  top:20px;
+  right:20px;
+  padding:10px 15px;
+  border-radius:50px;
+  background:#ff4d6d;
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+  z-index:1000;
+}
 </style>
-
 </head>
-
 <body>
 
 <div id="intro">
@@ -137,27 +159,27 @@ font-weight:bold;
 </div>
 
 <div id="main">
+<div class="stars"></div>
 
 <h1>🎂 Happy Birthday Maryam 🎈</h1>
 
 <button onclick="showSurprise()">Tap for Surprise 🎁</button>
 
 <div id="surprise" class="hidden">
-
 <div class="message">
 
 <p><b>My dear little Maryam,</b></p>
+<p>Today you turn <b>one year old</b>. You are too little to read this now, but one day you will. When that day comes, I hope you feel the love that surrounded you from the very beginning of your life.</p>
 
-<p>Today you turn <b>one year old</b>. You are too little to read this now, but one day you will.</p>
+<p>You were the <b>first little star</b> who brought a special happiness into our family. From the moment you arrived, our hearts filled with joy, love, and warmth. Your tiny hands, your smile, and your laughter brightened our lives.</p>
 
-<p>You were the first little star who brought a beautiful happiness into our family.</p>
+<p>This message is a little treasure for the future. One day when you read it, you’ll know how deeply you were loved from the very start.</p>
 
-<p>From the moment you arrived, you filled our hearts with love.</p>
+<p><b>To your mother:</b> please keep this message safe for Maryam so that when she grows up she knows how special she was from the very beginning.</p>
 
-<p>May Allah bless your life with endless happiness and beautiful moments.</p>
+<p>Maryam, may Allah bless your life with <b>happiness, kindness, wisdom, and beautiful memories</b>. May your smile always shine, and may your life be filled with love and blessings.</p>
 
-<p><b>Happy 1st Birthday little princess 💖</b></p>
-
+<p><b>Happy 1st Birthday, our little princess 💖</b></p>
 </div>
 
 <div class="animals">
@@ -165,7 +187,6 @@ font-weight:bold;
 </div>
 
 <button onclick="showGift()">Open the Treasure ✨</button>
-
 </div>
 
 <div id="giftBox" class="hidden">
@@ -177,97 +198,71 @@ font-weight:bold;
 ✨ She's One — Alhamdulillah ✨
 </div>
 
-</div>
+<!-- SoundCloud player embed -->
+<iframe id="scPlayer"
+  src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/happy-birthday-official/happy-birthday-to-you-piano&auto_play=false&hide_related=false&show_comments=false&show_user=false&visual=false">
+</iframe>
 
-<audio id="music" loop>
-<source src="https://www2.cs.uic.edu/~i101/SoundFiles/HappyBirthday.mid">
-</audio>
+<!-- Mute/Unmute button -->
+<div id="muteBtn" onclick="toggleMute()">Mute</div>
 
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-
 <script>
-
-/* show main page after intro */
+let isMuted = false;
 
 setTimeout(()=>{
-document.getElementById("main").style.display="block"
-launchConfetti()
-createBalloons()
-},4000)
-
-/* confetti */
+  document.getElementById("main").style.display="block";
+  launchConfetti();
+  createBalloons();
+},4000);
 
 function launchConfetti(){
-
-confetti({
-particleCount:200,
-spread:120,
-origin:{x:0,y:0.5}
-})
-
-confetti({
-particleCount:200,
-spread:120,
-origin:{x:1,y:0.5}
-})
-
+  confetti({particleCount:200, spread:120, origin:{x:0,y:0.5}});
+  confetti({particleCount:200, spread:120, origin:{x:1,y:0.5}});
 }
-
-/* balloons */
 
 function createBalloons(){
-
-for(let i=0;i<12;i++){
-
-let balloon=document.createElement("div")
-balloon.className="balloon"
-balloon.style.left=Math.random()*100+"%"
-balloon.style.background="hsl("+Math.random()*360+",70%,60%)"
-balloon.style.animationDuration=(6+Math.random()*6)+"s"
-
-document.body.appendChild(balloon)
-
+  for(let i=0;i<12;i++){
+    let balloon=document.createElement("div");
+    balloon.className="balloon";
+    balloon.style.left=Math.random()*100+"%";
+    balloon.style.background="hsl("+Math.random()*360+",70%,60%)";
+    balloon.style.animationDuration=(6+Math.random()*6)+"s";
+    document.body.appendChild(balloon);
+  }
 }
-
-}
-
-/* surprise */
 
 function showSurprise(){
-
-document.getElementById("surprise").classList.remove("hidden")
-
-document.getElementById("music").play()
-
-confetti({
-particleCount:200,
-spread:90
-})
-
+  document.getElementById("surprise").classList.remove("hidden");
+  // Start SoundCloud music
+  let sc = document.getElementById("scPlayer");
+  sc.src += "&auto_play=true";
+  launchConfetti();
 }
-
-/* gift */
 
 function showGift(){
-
-document.getElementById("giftBox").classList.remove("hidden")
-
+  document.getElementById("giftBox").classList.remove("hidden");
 }
-
-/* treasure */
 
 function openTreasure(){
-
-document.getElementById("treasure").classList.remove("hidden")
-
-confetti({
-particleCount:350,
-spread:140
-})
-
+  document.getElementById("treasure").classList.remove("hidden");
+  confetti({particleCount:350, spread:140});
 }
 
+// Mute/unmute music
+function toggleMute(){
+  let sc = document.getElementById("scPlayer").contentWindow;
+  isMuted = !isMuted;
+  document.getElementById("muteBtn").innerText = isMuted ? "Unmute" : "Mute";
+  // Mute/unmute by adjusting iframe volume (SoundCloud API doesn't allow direct mute)
+  // workaround: replace iframe with same src to stop sound if muted
+  let iframe = document.getElementById("scPlayer");
+  if(isMuted){
+    iframe.src = iframe.src.replace("&auto_play=true","");
+  } else {
+    iframe.src += "&auto_play=true";
+  }
+}
 </script>
-
 </body>
 </html>
