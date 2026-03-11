@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Happy Birthday Princess 👑</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,500;1,300;1,500&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<script>
+/* ╔══════════════════════════════════════════════════════════╗
+   ║        ✏️  YOUR EASY CUSTOMIZATION ZONE                  ║
+   ║  Edit the values below — nothing else needed!            ║
+   ╚══════════════════════════════════════════════════════════╝ */
+const CONFIG = {
+
+  /* ── 👧 NAMES & AGE ───────────────────────────────────── */
+  childName:  "Maryam",       // 👈 Her real name
+  fromName:   "Salar mamu",      // 👈 Your name (Khala / Mama / Nani etc.)
+  age:        "1",              // 👈 Her age
+  ageWord:    "One",            // 👈 Written age: "One", "Five", "Ten" etc.
+
+  /* ── 💌 LETTER (Page 3) ───────────────────────────────────
+     Each string is one paragraph typed out letter-by-letter.
+  ────────────────────────────────────────────────────────── */
+  letter: [
+    "My dearest little Maryam,I know you can not read it but your mother will tell you about it",
+    "Today you turn one year old, and our hearts are so full of joy and love for you.",
+    "You came into this world and filled every corner of it with golden light. Watching you grow has been the greatest blessing we could have ever asked for.",
+    "May Allah bless every breath you take, every step you walk, and every dream you hold. You are our precious gift, our little princess, and we love you beyond all words.",
+    "Happy Birthday, our shining star. 👑✨",
+  ],
+
+  /* ── 💛 WHY WE LOVE YOU (Page 4) ─────────────────────────
+     Tap each card for a confetti burst! Add/remove freely.
+  ────────────────────────────────────────────────────────── */
+  reasons: [
+    { emoji:"😊", text:"Your smile melts every heart" },
+    { emoji:"👑", text:"You are our little queen" },
+    { emoji:"🌟", text:"You shine brighter every day" },
+    { emoji:"🤗", text:"Your sight is pure magic" },
+    { emoji:"🧠", text:"So clever, it amazes us all" },
+    { emoji:"😂", text:"Your laugh is the sweetest music" },
+    { emoji:"💪", text:"So brave and so strong" },
+    { emoji:"🌸", text:"You bloom more beautifully each day" },
+    { emoji:"🦋", text:"Full of wonder and curiosity" },
+    { emoji:"💜", text:"You make our family complete" },
+    { emoji:"✨", text:"Simply magical, simply you" },
+    { emoji:"🎀", text:"Our greatest blessing, always" },
+  ],
+
+  /* ── 🎂 BIRTHDAY WISHES (Page 5) ─────────────────────────
+     Each wish appears one by one in a royal scroll.
+  ────────────────────────────────────────────────────────── */
+  wishes: [
+    { icon:"🌙", wish:"May Allah fill your life with endless blessings and light." },
+    { icon:"💜", wish:"May you always be surrounded by love, warmth, and joy." },
+    { icon:"🌟", wish:"May every dream you hold come true, one by one." },
+    { icon:"🦋", wish:"May you grow with courage, kindness, and grace." },
+    { icon:"🎀", wish:"May your laughter never fade and your heart never dim." },
+    { icon:"👑", wish:"May you always know how truly precious and loved you are." },
+  ],
+
+  /* ── 🌹 FAMILY DEDICATIONS (Page 6) ──────────────────────
+     Who is celebrating her. Add/remove people freely.
+  ────────────────────────────────────────────────────────── */
+  dedications: [
+    { relation:"NANI",   emoji:"💜", message:"You are my whole world, my everything." },
+    { relation:"NANA",   emoji:"👑", message:"Wish he was here to celebrate this day with us." },
+    { relation:"Mamu",   emoji:"🌹", message:"My heart sings every time I see your face." },
+    { relation:"Mamu",   emoji:"🌟", message:"May you always shine as bright as you do today." },
+    { relation:"Mamu",  emoji:"🦋", message:"Watching you grow is my greatest joy, can't wait anymore to see you." },
+    { relation:"Mamu", emoji:"😊", message:"You make every day better just by existing." },
+  ],
+
+  /* ── ✨ DUA / FINAL BLESSING (Page 7) ────────────────────
+     The closing dua displayed on the prayer page.
+  ────────────────────────────────────────────────────────── */
+  dua: "اللهم بارك في عمرها وصحتها وسعادتها",
+  duaTranslation: "O Allah, bless her life, her health, and her happiness.",
+  duaClosing: "Ameen, Ya Rabb 🤲",
+
+  /* ── 🎵 MUSIC ──────────────────────────────────────────────
+     Paste a direct .mp3 URL, or leave "" for built-in melody.
+  ────────────────────────────────────────────────────────── */
+  musicUrl: "",
+};
+/* ═══════════════════════════════════════════════════════════
+   END OF CUSTOMIZATION ✨
+═══════════════════════════════════════════════════════════ */
+</script>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+:root{
+  --gold:#ffd700;--gold2:#ffec6e;--gold3:#b8860b;--gold4:#fff5b0;
+  --pur:#6a0dad;--pur2:#9b30ff;--pur3:#3d0066;
+  --dark:#0d0020;--mid:#1a0033;--soft:#2d004d;
+  --tl:rgba(255,235,200,0.93);--td:rgba(255,215,170,0.55);
+}
+html{scroll-behavior:smooth;}
+body{font-family:'Nunito',sans-serif;background:var(--dark);overflow-x:hidden;cursor:none;-webkit-font-smoothing:antialiased;}
+
+/* CURSOR */
+#cursor{position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);font-size:22px;line-height:1;transition:transform .1s;filter:drop-shadow(0 0 8px rgba(255,215,0,.8));}
+
+/* CANVAS */
+#cC{position:fixed;inset:0;pointer-events:none;z-index:600;}
+
+/* MUSIC BTN */
+.mBtn{
+  position:fixed;top:15px;right:15px;z-index:9000;width:46px;height:46px;
+  border-radius:50%;background:rgba(255,215,0,.1);border:1.5px solid rgba(255,215,0,.3);
+  backdrop-filter:blur(10px);cursor:pointer;font-size:1.2rem;display:flex;
+  align-items:center;justify-content:center;color:var(--gold);
+  transition:background .2s,transform .2s;box-shadow:0 0 16px rgba(255,215,0,.15);
+}
+.mBtn:hover{background:rgba(255,215,0,.22);transform:scale(1.1);}
+
+/* PAGE INDICATOR */
+.pInd{
+  position:fixed;bottom:18px;left:50%;transform:translateX(-50%);
+  display:flex;gap:7px;z-index:9000;
+}
+.pd{width:7px;height:7px;border-radius:50%;background:rgba(255,215,0,.22);border:none;cursor:pointer;transition:all .3s;}
+.pd.on{background:var(--gold);transform:scale(1.5);box-shadow:0 0 8px rgba(255,215,0,.6);}
+
+/* PAGES */
+.page{display:none;min-height:100vh;width:100%;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+.page.on{display:flex;}
+
+/* SHARED ELEMENTS */
+.secHead{text-align:center;margin-bottom:24px;z-index:2;position:relative;}
+.secHead h2{font-family:'Cinzel Decorative',cursive;font-size:clamp(1.4rem,5.5vw,2.4rem);color:var(--gold);text-shadow:0 0 20px rgba(255,215,0,.5);letter-spacing:.04em;}
+.secHead p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(.82rem,3vw,1rem);color:var(--td);letter-spacing:.18em;margin-top:5px;}
+.gDiv{width:100px;height:1px;margin:10px auto 0;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
+
+.goBtn{
+  padding:14px 44px;margin-top:24px;
+  font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1rem,3.8vw,1.28rem);
+  color:var(--dark);font-weight:600;
+  background:linear-gradient(135deg,#ffd700,#ffb300,#ffd700);background-size:200% auto;
+  border:none;border-radius:50px;cursor:pointer;
+  box-shadow:0 8px 28px rgba(255,215,0,.38);transition:transform .2s,box-shadow .2s;
+  animation:gShimmer 4s linear infinite;z-index:2;position:relative;
+}
+.goBtn:hover{transform:translateY(-3px);box-shadow:0 12px 36px rgba(255,215,0,.55);}
+@keyframes gShimmer{to{background-position:200% center;}}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
+
+/* ═══════════════════════
+   PAGE 1 — ROYAL COVER
+═══════════════════════ */
+#p1{
+  background:
+    radial-gradient(ellipse at 50% 0%,rgba(154,48,255,.35) 0%,transparent 60%),
+    radial-gradient(ellipse at 0% 80%,rgba(106,13,173,.3) 0%,transparent 55%),
+    linear-gradient(180deg,#150028 0%,#2d004d 100%);
+  cursor:pointer;
+}
+.starField{position:absolute;inset:0;overflow:hidden;pointer-events:none;}
+.sDot{position:absolute;border-radius:50%;background:#fff;animation:twink ease-in-out infinite;}
+@keyframes twink{0%,100%{opacity:.1;transform:scale(.7);}50%{opacity:1;transform:scale(1.3);}}
+.goldDustWrap{position:absolute;inset:0;overflow:hidden;pointer-events:none;}
+.gdp{position:absolute;border-radius:50%;background:radial-gradient(circle,var(--gold),transparent);animation:gdFloat linear infinite;}
+@keyframes gdFloat{0%{transform:translateY(0) rotate(0);opacity:0;}10%{opacity:.7;}90%{opacity:.25;}100%{transform:translateY(-100vh) rotate(720deg);opacity:0;}}
+.royalBorder{position:absolute;inset:12px;border-radius:24px;pointer-events:none;border:1px solid rgba(255,215,0,.14);box-shadow:inset 0 0 60px rgba(154,48,255,.08);}
+.royalBorder::before{content:'';position:absolute;inset:8px;border-radius:18px;border:1px solid rgba(255,215,0,.06);}
+/* corner ornaments */
+.corner{position:absolute;font-size:1.4rem;color:rgba(255,215,0,.4);pointer-events:none;z-index:3;animation:cornerPulse 3s ease-in-out infinite;}
+@keyframes cornerPulse{0%,100%{opacity:.3;}50%{opacity:.8;}}
+.tl{top:20px;left:20px;}.tr{top:20px;right:20px;}.bl{bottom:44px;left:20px;}.br{bottom:44px;right:20px;}
+
+.coverBody{text-align:center;padding:28px 24px;z-index:3;position:relative;display:flex;flex-direction:column;align-items:center;}
+.crownIcon{font-size:clamp(3.5rem,13vw,6.5rem);display:block;animation:crownF 3s ease-in-out infinite;filter:drop-shadow(0 0 32px rgba(255,215,0,.7)) drop-shadow(0 0 70px rgba(255,215,0,.3));margin-bottom:4px;}
+@keyframes crownF{0%,100%{transform:translateY(0) rotate(-4deg);}50%{transform:translateY(-14px) rotate(4deg);}}
+.cTopTxt{font-family:'Cormorant Garamond',serif;font-size:clamp(.88rem,3.2vw,1.15rem);color:var(--td);letter-spacing:.42em;text-transform:uppercase;animation:fadeUp 1s ease .3s both;margin-bottom:8px;}
+.cTitle{font-family:'Cinzel Decorative',cursive;font-size:clamp(1.7rem,6.5vw,3.6rem);color:var(--gold);line-height:1.1;text-shadow:0 0 20px rgba(255,215,0,.7),0 0 60px rgba(255,215,0,.3),2px 3px 0 rgba(0,0,0,.35);animation:fadeUp 1.1s ease .5s both;}
+.cName{font-family:'Cinzel Decorative',cursive;font-size:clamp(2.5rem,10.5vw,5.8rem);background:linear-gradient(135deg,#ffd700,#ffec6e,#fff8c0,#ffd700,#b8860b,#ffd700);background-size:300% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block;line-height:1.1;filter:drop-shadow(2px 3px 0 rgba(0,0,0,.4));animation:fadeUp 1.1s ease .7s both,gShimmer 5s linear 2s infinite;}
+.ageBadge{display:inline-flex;align-items:center;gap:8px;margin:14px 0 6px;padding:8px 22px;background:rgba(255,215,0,.09);border:1px solid rgba(255,215,0,.28);border-radius:40px;font-family:'Cormorant Garamond',serif;font-size:clamp(.95rem,3.8vw,1.25rem);color:var(--gold2);letter-spacing:.1em;animation:fadeUp 1s ease 1s both;}
+.cSub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(.83rem,3vw,1.03rem);color:var(--td);letter-spacing:.18em;animation:fadeUp 1s ease 1.1s both;margin-bottom:28px;}
+.enterBtn{display:inline-flex;align-items:center;gap:10px;padding:18px 52px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.1rem,4.2vw,1.45rem);color:var(--dark);background:linear-gradient(135deg,#ffd700,#ffb300,#ffd700);background-size:200% auto;border:none;border-radius:60px;cursor:pointer;box-shadow:0 8px 36px rgba(255,215,0,.45),inset 0 1px 0 rgba(255,255,255,.4);animation:fadeUp 1s ease 1.3s both,btnPulse 2.5s ease 2.8s infinite,gShimmer 4s linear 2s infinite;position:relative;overflow:hidden;font-weight:600;}
+.enterBtn::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.28),transparent);pointer-events:none;}
+.bShine{position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.4),transparent);animation:shineSweep 3.5s ease 3s infinite;}
+@keyframes shineSweep{0%{left:-100%;}40%,100%{left:160%;}}
+@keyframes btnPulse{0%,100%{box-shadow:0 8px 36px rgba(255,215,0,.45);}50%{box-shadow:0 8px 50px rgba(255,215,0,.8),0 0 0 8px rgba(255,215,0,.1);}}
+.sHint{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);font-family:'Nunito',sans-serif;font-size:.7rem;letter-spacing:.14em;color:var(--td);text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:3px;animation:hFade 2s ease-in-out infinite;pointer-events:none;}
+@keyframes hFade{0%,100%{opacity:.25;}50%{opacity:.75;}}
+.sHint::after{content:'✦';font-size:.85rem;color:rgba(255,215,0,.35);}
+
+/* ═══════════════════════
+   PAGE 2 — SPARKLING INTRO
+   "A Royal Celebration"
+═══════════════════════ */
+#p2{background:radial-gradient(ellipse at 50% 30%,#2d0060 0%,#0d001a 100%);padding:40px 24px 80px;}
+.introCard{max-width:600px;width:100%;background:rgba(255,255,255,.04);border:1px solid rgba(255,215,0,.18);border-radius:28px;padding:clamp(28px,6vw,48px);text-align:center;box-shadow:0 24px 80px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,215,0,.1);z-index:2;position:relative;overflow:hidden;}
+.introCard::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(255,215,0,.06) 0%,transparent 60%);pointer-events:none;}
+.iRosette{font-size:clamp(3rem,10vw,5rem);display:block;animation:rSpin 10s linear infinite;filter:drop-shadow(0 0 18px rgba(255,215,0,.6));margin-bottom:12px;}
+@keyframes rSpin{0%{transform:rotate(0) scale(1);}50%{transform:rotate(180deg) scale(1.1);}100%{transform:rotate(360deg) scale(1);}}
+.iTitle{font-family:'Cinzel Decorative',cursive;font-size:clamp(1.4rem,5.5vw,2.2rem);color:var(--gold);text-shadow:0 0 20px rgba(255,215,0,.5);margin-bottom:16px;}
+.iBody p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1rem,3.8vw,1.18rem);color:var(--tl);line-height:1.9;margin-bottom:12px;}
+.iBody p span{color:var(--gold2);font-weight:500;}
+.iStats{display:flex;justify-content:center;gap:clamp(16px,5vw,40px);margin:24px 0;flex-wrap:wrap;}
+.iStat{display:flex;flex-direction:column;align-items:center;gap:4px;}
+.iNum{font-family:'Cinzel Decorative',cursive;font-size:clamp(1.8rem,7vw,3rem);color:var(--gold);text-shadow:0 0 16px rgba(255,215,0,.5);}
+.iLbl{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(.78rem,2.8vw,.95rem);color:var(--td);letter-spacing:.12em;}
+.iDivider{width:1px;height:50px;background:rgba(255,215,0,.2);align-self:center;}
+/* floating specks */
+.specks{position:absolute;inset:0;pointer-events:none;overflow:hidden;}
+.spk{position:absolute;border-radius:50%;background:var(--gold);animation:spkF ease-in-out infinite;opacity:0;}
+@keyframes spkF{0%{opacity:0;transform:translateY(0) scale(.5);}20%{opacity:.6;}80%{opacity:.2;}100%{opacity:0;transform:translateY(-80px) scale(1.3);}}
+
+/* ═══════════════════════
+   PAGE 3 — LETTER
+═══════════════════════ */
+#p3{background:radial-gradient(ellipse at 30% 20%,rgba(154,48,255,.18) 0%,transparent 55%),linear-gradient(160deg,#130026 0%,#1a0033 100%);padding:36px 20px 80px;justify-content:flex-start;}
+.letterCard{max-width:660px;width:100%;background:rgba(255,255,255,.04);border:1px solid rgba(255,215,0,.17);border-radius:28px;box-shadow:0 24px 80px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,215,0,.1);backdrop-filter:blur(16px);overflow:hidden;z-index:2;position:relative;}
+.lStripe{height:4px;background:linear-gradient(90deg,var(--pur3),var(--pur2),var(--gold),var(--pur2),var(--pur3));background-size:200% 100%;animation:stripeMove 3s linear infinite;}
+@keyframes stripeMove{to{background-position:200% 0;}}
+.lInner{padding:clamp(24px,6vw,44px);}
+.lSeal{font-size:clamp(2rem,7vw,2.8rem);display:block;text-align:center;animation:rSpin 10s linear infinite;filter:drop-shadow(0 0 12px rgba(255,215,0,.5));margin-bottom:8px;}
+.letterCard h2{font-family:'Cinzel Decorative',cursive;font-size:clamp(1.2rem,4.5vw,1.9rem);color:var(--gold);text-align:center;margin-bottom:4px;text-shadow:0 0 16px rgba(255,215,0,.4);}
+.lSub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(.8rem,2.8vw,.95rem);color:var(--td);text-align:center;letter-spacing:.15em;margin-bottom:20px;}
+#typeOut{font-family:'Cormorant Garamond',serif;font-size:clamp(.98rem,3.5vw,1.12rem);color:var(--tl);line-height:1.95;min-height:110px;white-space:pre-wrap;}
+.tBlink{display:inline-block;width:2px;height:1.1em;background:var(--gold);margin-left:2px;vertical-align:text-bottom;animation:blink .7s ease-in-out infinite;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:0;}}
+
+/* ═══════════════════════
+   PAGE 4 — REASONS
+═══════════════════════ */
+#p4{background:radial-gradient(ellipse at 50% 0%,rgba(154,48,255,.14) 0%,transparent 55%),linear-gradient(160deg,#1f0040 0%,#2a0050 100%);padding:36px 16px 80px;justify-content:flex-start;}
+.rGrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:11px;width:100%;max-width:700px;z-index:2;position:relative;}
+.rCard{background:rgba(255,255,255,.04);border:1px solid rgba(255,215,0,.14);border-radius:16px;padding:17px 10px;text-align:center;cursor:pointer;box-shadow:0 4px 20px rgba(0,0,0,.3);transition:transform .25s cubic-bezier(.34,1.56,.64,1),box-shadow .25s,border-color .2s;position:relative;overflow:hidden;}
+.rCard::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,215,0,.04),transparent);pointer-events:none;}
+.rCard:hover{transform:translateY(-6px) scale(1.05);box-shadow:0 14px 40px rgba(106,13,173,.4),0 0 20px rgba(255,215,0,.14);border-color:rgba(255,215,0,.38);}
+.rCard:active{transform:scale(.95);}
+.rE{font-size:clamp(1.8rem,6vw,2.3rem);display:block;margin-bottom:7px;}
+.rT{font-family:'Nunito',sans-serif;font-size:.77rem;color:rgba(255,220,180,.72);line-height:1.35;font-weight:600;}
+
+/* ═══════════════════════
+   PAGE 5 — WISHES SCROLL
+═══════════════════════ */
+#p5{background:radial-gradient(ellipse at 50% 30%,#2a0050 0%,#0d0020 100%);padding:36px 20px 80px;justify-content:flex-start;}
+.wishList{max-width:620px;width:100%;display:flex;flex-direction:column;gap:14px;z-index:2;position:relative;}
+.wishItem{
+  display:flex;align-items:flex-start;gap:16px;
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,215,0,.14);
+  border-radius:18px;padding:18px 20px;
+  box-shadow:0 4px 24px rgba(0,0,0,.3);
+  opacity:0;transform:translateX(-30px);
+  transition:opacity .5s ease,transform .5s ease;
+}
+.wishItem.vis{opacity:1;transform:translateX(0);}
+.wIcon{font-size:clamp(1.6rem,5.5vw,2.2rem);flex-shrink:0;filter:drop-shadow(0 0 8px rgba(255,215,0,.4));}
+.wText{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(.95rem,3.5vw,1.12rem);color:var(--tl);line-height:1.75;padding-top:2px;}
+
+/* ═══════════════════════
+   PAGE 6 — DEDICATIONS
+═══════════════════════ */
+#p6{background:radial-gradient(ellipse at 60% 20%,rgba(106,13,173,.2) 0%,transparent 55%),linear-gradient(160deg,#150028 0%,#200038 100%);padding:36px 16px 80px;justify-content:flex-start;}
+.dedGrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:14px;width:100%;max-width:680px;z-index:2;position:relative;}
+.dedCard{background:rgba(255,255,255,.04);border:1px solid rgba(255,215,0,.15);border-radius:20px;padding:22px 14px;text-align:center;cursor:pointer;box-shadow:0 4px 20px rgba(0,0,0,.35);transition:transform .25s cubic-bezier(.34,1.56,.64,1),box-shadow .25s;position:relative;overflow:hidden;}
+.dedCard::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,215,0,.04),transparent);pointer-events:none;}
+.dedCard:hover{transform:translateY(-6px);box-shadow:0 16px 44px rgba(106,13,173,.45),0 0 22px rgba(255,215,0,.15);}
+.dedEmoji{font-size:clamp(2rem,6.5vw,2.8rem);display:block;margin-bottom:8px;filter:drop-shadow(0 0 8px rgba(255,215,0,.35));}
+.dedRel{font-family:'Cinzel Decorative',cursive;font-size:clamp(.75rem,2.5vw,.95rem);color:var(--gold2);margin-bottom:6px;letter-spacing:.05em;}
+.dedMsg{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(.78rem,2.8vw,.92rem);color:var(--td);line-height:1.45;}
+
+/* ═══════════════════════
+   PAGE 7 — DUA / PRAYER
+═══════════════════════ */
+#p7{background:radial-gradient(ellipse at 50% 40%,#25004a 0%,#0a0018 100%);padding:40px 24px 80px;}
+.duaCard{max-width:580px;width:100%;text-align:center;z-index:2;position:relative;display:flex;flex-direction:column;align-items:center;gap:16px;}
+.duaMoon{font-size:clamp(3.5rem,13vw,6rem);animation:crownF 3.5s ease-in-out infinite;filter:drop-shadow(0 0 30px rgba(255,215,0,.5)) drop-shadow(0 0 80px rgba(154,48,255,.3));}
+.duaTitle{font-family:'Cinzel Decorative',cursive;font-size:clamp(1.3rem,5vw,2rem);color:var(--gold);text-shadow:0 0 20px rgba(255,215,0,.5);}
+.duaArabic{
+  font-size:clamp(1.4rem,5.5vw,2rem);color:var(--gold2);
+  direction:rtl;letter-spacing:.05em;line-height:1.8;
+  font-family:'Cormorant Garamond',serif;
+  text-shadow:0 0 16px rgba(255,215,0,.35);
+  background:rgba(255,215,0,.05);border:1px solid rgba(255,215,0,.18);
+  border-radius:16px;padding:18px 28px;width:100%;
+}
+.duaTrans{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(.95rem,3.5vw,1.18rem);color:var(--tl);line-height:1.75;}
+.duaClose{font-family:'Cinzel Decorative',cursive;font-size:clamp(1rem,4vw,1.5rem);color:var(--gold);text-shadow:0 0 16px rgba(255,215,0,.5);animation:glowPulse 2.5s ease-in-out infinite;}
+@keyframes glowPulse{0%,100%{text-shadow:0 0 16px rgba(255,215,0,.5);}50%{text-shadow:0 0 30px rgba(255,215,0,1),0 0 60px rgba(255,215,0,.5);}}
+
+/* ═══════════════════════
+   PAGE 8 — GRAND FINALE
+═══════════════════════ */
+#p8{background:radial-gradient(ellipse at 50% 40%,#2d0060 0%,#0d0020 100%);padding:32px 24px;}
+.orbsWrap{position:absolute;inset:0;overflow:hidden;pointer-events:none;}
+.orb{position:absolute;border-radius:50%;animation:orbP ease-in-out infinite;}
+@keyframes orbP{0%,100%{transform:scale(1);opacity:.18;}50%{transform:scale(1.6);opacity:.45;}}
+.finaleBody{text-align:center;z-index:3;position:relative;max-width:580px;display:flex;flex-direction:column;align-items:center;gap:12px;}
+.finCrown{font-size:clamp(4.5rem,17vw,8rem);animation:crownF 2.5s ease-in-out infinite;filter:drop-shadow(0 0 40px rgba(255,215,0,.7)) drop-shadow(0 0 100px rgba(255,215,0,.3));}
+.finH{font-family:'Cinzel Decorative',cursive;font-size:clamp(1.5rem,6.5vw,3rem);background:linear-gradient(135deg,#ffd700,#ffec6e,#fff5b0,#ffd700,#b8860b,#ffd700);background-size:300% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:gShimmer 3s linear infinite;line-height:1.25;}
+.finAge{font-family:'Cormorant Garamond',serif;font-size:clamp(1.2rem,4.8vw,1.9rem);color:var(--gold2);letter-spacing:.2em;border:1px solid rgba(255,215,0,.28);padding:8px 26px;border-radius:40px;background:rgba(255,215,0,.07);}
+.finMsg{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(.93rem,3.5vw,1.12rem);color:var(--tl);line-height:1.85;max-width:480px;}
+.finFrom{padding-top:14px;border-top:1px solid rgba(255,215,0,.14);width:100%;}
+.finWith{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(.83rem,3vw,1rem);color:var(--td);}
+.finName{font-family:'Cinzel Decorative',cursive;font-size:clamp(1.2rem,4.5vw,2rem);color:var(--gold);text-shadow:0 0 16px rgba(255,215,0,.5);}
+.replayBtn{margin-top:12px;padding:14px 40px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1rem,3.8vw,1.22rem);color:var(--dark);font-weight:600;background:linear-gradient(135deg,#ffd700,#ffb300);border:none;border-radius:50px;cursor:pointer;box-shadow:0 8px 28px rgba(255,215,0,.4);transition:transform .2s;}
+.replayBtn:hover{transform:translateY(-3px);}
+
+@media(max-width:380px){
+  .rGrid{grid-template-columns:repeat(2,1fr);}
+  .dedGrid{grid-template-columns:repeat(2,1fr);}
+  .cTitle{font-size:1.5rem;}
+}
+</style>
+</head>
+<body>
+
+<div id="cursor">👑</div>
+<canvas id="cC"></canvas>
+<button class="mBtn" id="mBtn" onclick="toggleMusic()">🎵</button>
+<div class="pInd" id="pInd"></div>
+
+<!-- ══ PAGE 1 — ROYAL COVER ══ -->
+<div class="page on" id="p1">
+  <div class="starField" id="starField"></div>
+  <div class="goldDustWrap" id="goldDust"></div>
+  <div class="royalBorder"></div>
+  <span class="corner tl">✦</span><span class="corner tr">✦</span>
+  <span class="corner bl">✦</span><span class="corner br">✦</span>
+  <div class="coverBody">
+    <span class="crownIcon">👑</span>
+    <p class="cTopTxt">A Royal Celebration for</p>
+    <h1 class="cTitle">Happy Birthday</h1>
+    <span class="cName" id="cName">Princess</span>
+    <div class="ageBadge"><span>✦</span><span id="cAge">Turning One · Year of Magic</span><span>✦</span></div>
+    <p class="cSub">A Celebration Fit for a Princess</p>
+    <button class="enterBtn" onclick="goPage(2)">
+      <div class="bShine"></div>✦ Enter Our Royal World ✦
+    </button>
+  </div>
+  <div class="sHint">tap to begin</div>
+</div>
+
+<!-- ══ PAGE 2 — ROYAL INTRO ══ -->
+<div class="page" id="p2">
+  <div class="specks" id="specks2"></div>
+  <div class="introCard">
+    <div class="specks" id="specksCard"></div>
+    <span class="iRosette">🌟</span>
+    <h2 class="iTitle">One Year of Pure Magic</h2>
+    <div class="iStats">
+      <div class="iStat"><span class="iNum" id="iAge">1</span><span class="iLbl">Year of Blessings</span></div>
+      <div class="iDivider"></div>
+      <div class="iStat"><span class="iNum">365</span><span class="iLbl">Days of Joy</span></div>
+      <div class="iDivider"></div>
+      <div class="iStat"><span class="iNum">∞</span><span class="iLbl">Love for You</span></div>
+    </div>
+    <div class="iBody">
+      <p>Today the whole world celebrates <span id="iName">you</span>, our precious golden gift.</p>
+      <p>One year of your laughter, your tiny hands, your sparkling eyes — and already you have given us more joy than we ever imagined possible.</p>
+      <p>This is your royal celebration. Every page of this was made with love, just for you. 💜✨</p>
+    </div>
+  </div>
+  <button class="goBtn" onclick="goPage(3)">Read the Royal Letter 💌</button>
+</div>
+
+<!-- ══ PAGE 3 — LETTER ══ -->
+<div class="page" id="p3">
+  <div class="specks" id="specks3"></div>
+  <div class="letterCard">
+    <div class="lStripe"></div>
+    <div class="lInner">
+      <span class="lSeal">👑</span>
+      <h2 id="lTitle">A Letter for Our Princess</h2>
+      <p class="lSub">written with all the love in the world</p>
+      <div id="typeOut"><span class="tBlink"></span></div>
+    </div>
+  </div>
+  <button class="goBtn" onclick="goPage(4)">See Why We Love You ✨</button>
+</div>
+
+<!-- ══ PAGE 4 — REASONS ══ -->
+<div class="page" id="p4">
+  <div class="secHead">
+    <h2>💛 Why You Are Our Gold</h2>
+    <p>tap each card to celebrate</p>
+    <div class="gDiv"></div>
+  </div>
+  <div class="rGrid" id="rGrid"></div>
+  <button class="goBtn" onclick="goPage(5)">Our Wishes for You 🌟</button>
+</div>
+
+<!-- ══ PAGE 5 — WISHES ══ -->
+<div class="page" id="p5">
+  <div class="secHead">
+    <h2>✦ Our Royal Wishes ✦</h2>
+    <p>from our hearts to yours</p>
+    <div class="gDiv"></div>
+  </div>
+  <div class="wishList" id="wishList"></div>
+  <button class="goBtn" onclick="goPage(6)">Messages of Love 💜</button>
+</div>
+
+<!-- ══ PAGE 6 — DEDICATIONS ══ -->
+<div class="page" id="p6">
+  <div class="secHead">
+    <h2>💜 From Everyone Who Loves You</h2>
+    <p>your family's heart, in words</p>
+    <div class="gDiv"></div>
+  </div>
+  <div class="dedGrid" id="dedGrid"></div>
+  <button class="goBtn" onclick="goPage(7)">A Prayer Just for You 🤲</button>
+</div>
+
+<!-- ══ PAGE 7 — DUA ══ -->
+<div class="page" id="p7">
+  <div class="specks" id="specks7"></div>
+  <div class="duaCard">
+    <span class="duaMoon">🌙</span>
+    <h2 class="duaTitle">A Special Dua for You</h2>
+    <div class="duaArabic" id="duaArabic"></div>
+    <p class="duaTrans" id="duaTrans"></p>
+    <p class="duaClose" id="duaClose"></p>
+  </div>
+  <button class="goBtn" onclick="goPage(8);runFinale()">The Grand Finale 🎉</button>
+</div>
+
+<!-- ══ PAGE 8 — FINALE ══ -->
+<div class="page" id="p8">
+  <div class="orbsWrap" id="orbsWrap"></div>
+  <div class="finaleBody">
+    <span class="finCrown">👑</span>
+    <h2 class="finH" id="finH"></h2>
+    <div class="finAge" id="finAge"></div>
+    <p class="finMsg" id="finMsg"></p>
+    <div class="finFrom">
+      <p class="finWith">with all our love,</p>
+      <p class="finName" id="finName"></p>
+    </div>
+    <button class="replayBtn" onclick="goPage(1)">✦ Replay from the Beginning</button>
+  </div>
+</div>
+
+<script>
+/* ══════════════════════════════════
+   INIT
+══════════════════════════════════ */
+window.addEventListener('DOMContentLoaded', () => {
+  applyConfig();
+  buildStars();
+  buildGoldDust();
+  buildReasons();
+  buildWishes();
+  buildDedications();
+  buildOrbs();
+  buildSpecks();
+  buildPageDots();
+  initCursor();
+  startConfLoop();
+});
+
+/* ══════════════════════════════════
+   APPLY CONFIG
+══════════════════════════════════ */
+function applyConfig(){
+  document.title = `Happy Birthday ${CONFIG.childName} 👑`;
+  qs('#cName').textContent   = CONFIG.childName;
+  qs('#cAge').textContent    = `Turning ${CONFIG.ageWord} · A Royal Celebration`;
+  qs('#iAge').textContent    = CONFIG.age;
+  qs('#iName').textContent   = CONFIG.childName;
+  qs('#lTitle').textContent  = `A Letter for Our ${CONFIG.childName}`;
+  qs('#duaArabic').textContent = CONFIG.dua;
+  qs('#duaTrans').textContent  = CONFIG.duaTranslation;
+  qs('#duaClose').textContent  = CONFIG.duaClosing;
+  qs('#finH').textContent    = `Happy Birthday, ${CONFIG.childName}! 👑`;
+  qs('#finAge').textContent  = `✦  ${CONFIG.ageWord} Year of Blessings  ✦`;
+  qs('#finMsg').textContent  = `May your entire life shine as brightly as you do today. You are our greatest gift, our little queen, and we love you endlessly. 💜✨`;
+  qs('#finName').textContent = CONFIG.fromName;
+}
+
+/* ══════════════════════════════════
+   HELPERS
+══════════════════════════════════ */
+function qs(s){ return document.querySelector(s); }
+function qsa(s){ return document.querySelectorAll(s); }
+
+/* ══════════════════════════════════
+   PAGE NAV
+══════════════════════════════════ */
+let curPage=1, twPlayed=false, wishesShown=false, dedsShown=false;
+function goPage(n){
+  qsa('.page').forEach((p,i)=>p.classList.toggle('on',i+1===n));
+  qsa('.pd').forEach((d,i)=>d.classList.toggle('on',i+1===n));
+  curPage=n; window.scrollTo(0,0);
+  if(n===3 && !twPlayed){ twPlayed=true; setTimeout(startTypewriter,400); }
+  if(n===4) animateReasons();
+  if(n===5 && !wishesShown){ wishesShown=true; animateWishes(); }
+  if(n===6 && !dedsShown){ dedsShown=true; animateDeds(); }
+}
+
+/* ══════════════════════════════════
+   PAGE DOTS
+══════════════════════════════════ */
+function buildPageDots(){
+  const bar=qs('#pInd');
+  for(let i=1;i<=8;i++){
+    const d=document.createElement('button');
+    d.className='pd'+(i===1?' on':'');
+    d.onclick=()=>goPage(i); d.title=`Page ${i}`;
+    bar.appendChild(d);
+  }
+}
+
+/* ══════════════════════════════════
+   CURSOR
+══════════════════════════════════ */
+function initCursor(){
+  const c=qs('#cursor');
+  const mv=(x,y)=>{c.style.left=x+'px';c.style.top=y+'px';};
+  document.addEventListener('mousemove',e=>mv(e.clientX,e.clientY));
+  document.addEventListener('touchmove',e=>{const t=e.touches[0];mv(t.clientX,t.clientY);},{passive:true});
+}
+
+/* ══════════════════════════════════
+   STARS
+══════════════════════════════════ */
+function buildStars(){
+  const c=qs('#starField');
+  for(let i=0;i<200;i++){
+    const s=document.createElement('div');s.className='sDot';
+    const sz=Math.random()*2.5+.4;
+    s.style.cssText=`width:${sz}px;height:${sz}px;top:${Math.random()*100}%;left:${Math.random()*100}%;animation-duration:${1.5+Math.random()*3}s;animation-delay:${Math.random()*4}s;`;
+    c.appendChild(s);
+  }
+}
+
+/* ══════════════════════════════════
+   GOLD DUST
+══════════════════════════════════ */
+function buildGoldDust(){
+  const c=qs('#goldDust');
+  function spawn(){
+    if(curPage!==1)return;
+    const d=document.createElement('div');d.className='gdp';
+    const sz=2+Math.random()*4;
+    d.style.cssText=`width:${sz}px;height:${sz}px;left:${Math.random()*100}%;bottom:-10px;animation-duration:${5+Math.random()*7}s;`;
+    c.appendChild(d); setTimeout(()=>d.remove(),14000);
+  }
+  setInterval(spawn,380);
+}
+
+/* ══════════════════════════════════
+   FLOATING SPECKS (letter / pages)
+══════════════════════════════════ */
+function buildSpecks(){
+  ['#specks2','#specks3','#specks7','#specksCard'].forEach(id=>{
+    const c=qs(id); if(!c)return;
+    for(let i=0;i<10;i++){
+      const s=document.createElement('div');s.className='spk';
+      const sz=1.5+Math.random()*3;
+      s.style.cssText=`width:${sz}px;height:${sz}px;left:${Math.random()*90}%;bottom:${5+Math.random()*40}%;animation-duration:${3.5+Math.random()*4}s;animation-delay:${i*.8}s;`;
+      c.appendChild(s);
+    }
+  });
+}
+
+/* ══════════════════════════════════
+   TYPEWRITER
+══════════════════════════════════ */
+function startTypewriter(){
+  const el=qs('#typeOut');
+  el.innerHTML='<span class="tBlink"></span>';
+  const lines=CONFIG.letter;
+  let li=0,ci=0,txt='';
+  const blink=el.querySelector('.tBlink');
+  function type(){
+    if(li>=lines.length){blink.remove();return;}
+    if(ci<lines[li].length){
+      txt+=lines[li][ci++];
+      el.childNodes[0].textContent=txt;
+      el.appendChild(blink);
+      setTimeout(type,35+Math.random()*25);
+    } else { txt+='\n\n';li++;ci=0;setTimeout(type,700); }
+  }
+  setTimeout(type,300);
+}
+
+/* ══════════════════════════════════
+   REASONS
+══════════════════════════════════ */
+function buildReasons(){
+  const g=qs('#rGrid');
+  CONFIG.reasons.forEach((r,i)=>{
+    const c=document.createElement('div');c.className='rCard';c.style.opacity='0';
+    c.innerHTML=`<span class="rE">${r.emoji}</span><p class="rT">${r.text}</p>`;
+    c.addEventListener('click',()=>{
+      const rc=c.getBoundingClientRect();
+      burst(rc.left+rc.width/2,rc.top+rc.height/2,35,false);
+      c.style.transition='transform .3s cubic-bezier(.34,1.56,.64,1)';
+      c.style.transform='scale(1.18) rotate(6deg)';
+      setTimeout(()=>c.style.transform='',450);
+    });
+    g.appendChild(c);
+  });
+}
+function animateReasons(){
+  qsa('.rCard').forEach((c,i)=>{
+    c.style.opacity='0';c.style.transform='scale(.6) translateY(18px)';
+    setTimeout(()=>{c.style.transition='all .44s cubic-bezier(.34,1.56,.64,1)';c.style.opacity='1';c.style.transform='scale(1) translateY(0)';},i*55);
+  });
+}
+
+/* ══════════════════════════════════
+   WISHES
+══════════════════════════════════ */
+function buildWishes(){
+  const list=qs('#wishList');
+  CONFIG.wishes.forEach(w=>{
+    const item=document.createElement('div');item.className='wishItem';
+    item.innerHTML=`<span class="wIcon">${w.icon}</span><p class="wText">${w.wish}</p>`;
+    list.appendChild(item);
+  });
+}
+function animateWishes(){
+  qsa('.wishItem').forEach((item,i)=>{
+    setTimeout(()=>item.classList.add('vis'),i*180);
+  });
+}
+
+/* ══════════════════════════════════
+   DEDICATIONS
+══════════════════════════════════ */
+function buildDedications(){
+  const g=qs('#dedGrid');
+  CONFIG.dedications.forEach((d,i)=>{
+    const c=document.createElement('div');c.className='dedCard';c.style.opacity='0';
+    c.innerHTML=`<span class="dedEmoji">${d.emoji}</span><p class="dedRel">${d.relation}</p><p class="dedMsg">${d.message}</p>`;
+    c.addEventListener('click',()=>{
+      const rc=c.getBoundingClientRect();
+      burst(rc.left+rc.width/2,rc.top+rc.height/2,28,false);
+    });
+    g.appendChild(c);
+  });
+}
+function animateDeds(){
+  qsa('.dedCard').forEach((c,i)=>{
+    c.style.opacity='0';c.style.transform='translateY(20px) scale(.9)';
+    setTimeout(()=>{c.style.transition='all .5s cubic-bezier(.34,1.3,.64,1)';c.style.opacity='1';c.style.transform='none';},i*80);
+  });
+}
+
+/* ══════════════════════════════════
+   ORBS (finale)
+══════════════════════════════════ */
+function buildOrbs(){
+  const wrap=qs('#orbsWrap');
+  [[50,30,160,3],[15,70,100,2.5],[85,60,80,3.5],[30,85,130,4],[70,20,90,2.8]].forEach(([l,t,sz,dur])=>{
+    const o=document.createElement('div');o.className='orb';
+    o.style.cssText=`left:${l}%;top:${t}%;width:${sz}px;height:${sz}px;margin:-${sz/2}px;background:radial-gradient(circle,rgba(255,215,0,.22) 0%,rgba(106,13,173,.15) 50%,transparent 70%);animation-duration:${dur}s;animation-delay:${Math.random()*2}s;`;
+    wrap.appendChild(o);
+  });
+}
+
+/* ══════════════════════════════════
+   CONFETTI
+══════════════════════════════════ */
+const CC=document.getElementById('cC'),CX=CC.getContext('2d');
+let pieces=[];
+function rCC(){CC.width=window.innerWidth;CC.height=window.innerHeight;}
+rCC();window.addEventListener('resize',rCC);
+const COLS=['#ffd700','#ffec6e','#b8860b','#ce93d8','#9b30ff','#e1bee7','#ffffff','#ffb300','#daa520','#f8bbd0'];
+function burst(bx,by,n,big){
+  for(let i=0;i<n;i++){
+    const a=Math.random()*Math.PI*2,s=(big?7:3)+Math.random()*(big?11:7);
+    pieces.push({x:bx,y:by,vx:Math.cos(a)*s,vy:Math.sin(a)*s-(Math.random()*(big?12:6)+2),
+      color:COLS[Math.floor(Math.random()*COLS.length)],
+      w:big?9+Math.random()*9:4+Math.random()*7,
+      h:big?3+Math.random()*5:2+Math.random()*4,
+      rot:Math.random()*360,rs:(Math.random()-.5)*15,
+      alpha:1,decay:.007+Math.random()*.007,
+      sh:['rect','circle','star','diamond'][Math.floor(Math.random()*4)]});
+  }
+}
+function dStar5(ctx,cx,cy,r){
+  ctx.beginPath();
+  for(let i=0;i<5;i++){const a=i*Math.PI*2/5-Math.PI/2,ai=a+Math.PI/5;i===0?ctx.moveTo(cx+r*Math.cos(a),cy+r*Math.sin(a)):ctx.lineTo(cx+r*Math.cos(a),cy+r*Math.sin(a));ctx.lineTo(cx+r*.4*Math.cos(ai),cy+r*.4*Math.sin(ai));}
+  ctx.closePath();
+}
+function startConfLoop(){
+  (function loop(){
+    CX.clearRect(0,0,CC.width,CC.height);
+    pieces=pieces.filter(p=>p.alpha>.01);
+    pieces.forEach(p=>{
+      p.vy+=.28;p.vx*=.99;p.x+=p.vx;p.y+=p.vy;p.rot+=p.rs;
+      if(p.y>CC.height*1.1)p.alpha=0;p.alpha-=p.decay;
+      CX.save();CX.globalAlpha=Math.max(0,p.alpha);CX.translate(p.x,p.y);CX.rotate(p.rot*Math.PI/180);
+      CX.fillStyle=p.color;CX.shadowColor=p.color;CX.shadowBlur=4;
+      switch(p.sh){
+        case'circle':CX.beginPath();CX.arc(0,0,p.w/2,0,Math.PI*2);CX.fill();break;
+        case'star':dStar5(CX,0,0,p.w/2);CX.fill();break;
+        case'diamond':CX.beginPath();CX.moveTo(0,-p.w/2);CX.lineTo(p.w*.4,0);CX.lineTo(0,p.w/2);CX.lineTo(-p.w*.4,0);CX.closePath();CX.fill();break;
+        default:CX.fillRect(-p.w/2,-p.h/2,p.w,p.h);
+      }
+      CX.restore();
+    });
+    requestAnimationFrame(loop);
+  })();
+}
+function runFinale(){
+  const W=window.innerWidth,H=window.innerHeight;
+  const go=()=>{
+    burst(W/2,H*.3,100,true);
+    setTimeout(()=>burst(W*.15,H*.4,60,false),300);
+    setTimeout(()=>burst(W*.85,H*.4,60,false),600);
+    setTimeout(()=>burst(W/2,H*.15,120,true),1000);
+    setTimeout(()=>burst(W*.5,H*.55,80,false),1600);
+  };
+  go();setTimeout(go,1700);setTimeout(go,3400);
+}
+document.addEventListener('click',e=>burst(e.clientX,e.clientY,14,false));
+document.addEventListener('touchend',e=>{const t=e.changedTouches[0];burst(t.clientX,t.clientY,14,false);},{passive:true});
+
+/* ══════════════════════════════════
+   MUSIC
+══════════════════════════════════ */
+let audioCtx=null,musicOn=false,musicTimer=null,audioEl=null;
+const MELODY=[[523.25,.3],[523.25,.15],[587.33,.45],[523.25,.45],[698.46,.45],[659.25,.9],[523.25,.3],[523.25,.15],[587.33,.45],[523.25,.45],[784,.45],[698.46,.9],[523.25,.3],[523.25,.15],[1046.5,.45],[880,.45],[698.46,.45],[659.25,.45],[587.33,.9],[932.33,.3],[932.33,.15],[880,.45],[698.46,.45],[784,.45],[698.46,.9]];
+if(CONFIG.musicUrl){audioEl=new Audio(CONFIG.musicUrl);audioEl.loop=true;}
+function playNote(ctx,f,t,d,v=.14){
+  const o=ctx.createOscillator(),g=ctx.createGain();
+  o.connect(g);g.connect(ctx.destination);o.type='sine';o.frequency.setValueAtTime(f,t);
+  g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(v,t+.02);g.gain.exponentialRampToValueAtTime(.001,t+d*.9);
+  o.start(t);o.stop(t+d);
+}
+function playMelody(){
+  if(!musicOn||audioEl)return;
+  if(!audioCtx)audioCtx=new(window.AudioContext||window.webkitAudioContext)();
+  let t=audioCtx.currentTime+.08;
+  MELODY.forEach(([f,d])=>{playNote(audioCtx,f,t,d);playNote(audioCtx,f*1.5,t,d,.05);t+=d*1.08;});
+  const total=MELODY.reduce((a,[,d])=>a+d*1.08,0);
+  musicTimer=setTimeout(()=>{if(musicOn)playMelody();},total*1000+200);
+}
+function toggleMusic(){
+  musicOn=!musicOn;
+  qs('#mBtn').textContent=musicOn?'🔇':'🎵';
+  if(musicOn){
+    if(audioEl){audioEl.play().catch(()=>{});}
+    else{if(!audioCtx)audioCtx=new(window.AudioContext||window.webkitAudioContext)();audioCtx.resume().then(playMelody);}
+  } else {
+    if(audioEl)audioEl.pause();
+    if(musicTimer)clearTimeout(musicTimer);
+  }
+}
+</script>
+</body>
+</html>
