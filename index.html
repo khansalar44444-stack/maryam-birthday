@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
-<title>Happy 1st Birthday Maryam 🎂</title>
+<title>Happy Birthday Maryam</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
 
@@ -11,79 +11,82 @@
 body{
 margin:0;
 font-family:'Poppins',sans-serif;
-background:linear-gradient(135deg,#ff9a9e,#fad0c4,#fad0c4,#ffd1ff);
 text-align:center;
-overflow-x:hidden;
+background:#111;
+color:white;
+overflow:hidden;
+}
+
+/* intro screen */
+
+#intro{
+position:absolute;
+width:100%;
+height:100%;
+background:#111;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:40px;
+font-family:'Pacifico',cursive;
+animation:fadeOut 4s forwards;
+animation-delay:4s;
+}
+
+@keyframes fadeOut{
+to{opacity:0;visibility:hidden;}
+}
+
+/* birthday screen */
+
+#main{
+display:none;
+background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+height:100vh;
+padding-top:120px;
 }
 
 h1{
 font-family:'Pacifico',cursive;
-font-size:55px;
-color:white;
-margin-top:40px;
-text-shadow:0 5px 15px rgba(0,0,0,0.2);
+font-size:65px;
+text-shadow:0 6px 20px rgba(0,0,0,0.4);
 }
 
-.container{
-max-width:850px;
-margin:auto;
-padding:20px;
+button{
+padding:16px 34px;
+font-size:18px;
+border:none;
+border-radius:30px;
+background:#ff4d6d;
+color:white;
+cursor:pointer;
+margin-top:30px;
+}
+
+.hidden{
+display:none;
 }
 
 .message{
 background:white;
-padding:35px;
-border-radius:25px;
-box-shadow:0 15px 40px rgba(0,0,0,0.2);
+color:#333;
+padding:30px;
+border-radius:20px;
+max-width:700px;
+margin:auto;
 font-size:20px;
-line-height:1.7;
-margin-top:30px;
-}
-
-.cake{
 margin-top:40px;
-position:relative;
 }
 
-.layer{
-width:200px;
-height:60px;
-background:#ff8fab;
-margin:auto;
-border-radius:10px;
+.animals{
+font-size:65px;
+margin-top:20px;
+animation:bounce 1s infinite alternate;
 }
 
-.layer:nth-child(2){
-width:160px;
-background:#ffb3c6;
-}
-
-.layer:nth-child(3){
-width:120px;
-background:#ffc8dd;
-}
-
-.candle{
-width:10px;
-height:40px;
-background:white;
-margin:auto;
-position:relative;
-top:-5px;
-}
-
-.flame{
-width:15px;
-height:20px;
-background:orange;
-border-radius:50%;
-margin:auto;
-animation:flicker 0.5s infinite alternate;
-}
-
-@keyframes flicker{
-from{transform:scale(1);}
-to{transform:scale(1.2);}
+@keyframes bounce{
+from{transform:translateY(0)}
+to{transform:translateY(-20px)}
 }
 
 .balloon{
@@ -92,7 +95,7 @@ bottom:-100px;
 width:60px;
 height:80px;
 border-radius:50%;
-animation:float 10s infinite;
+animation:float 8s infinite;
 }
 
 .balloon:after{
@@ -106,30 +109,21 @@ top:80px;
 }
 
 @keyframes float{
-0%{transform:translateY(0);}
-100%{transform:translateY(-120vh);}
+0%{transform:translateY(0)}
+100%{transform:translateY(-120vh)}
 }
 
-button{
-margin-top:25px;
-padding:15px 25px;
-border:none;
-border-radius:30px;
-font-size:18px;
-background:#ff4d6d;
-color:white;
-cursor:pointer;
-box-shadow:0 5px 15px rgba(0,0,0,0.2);
-}
-
-button:hover{
-transform:scale(1.05);
-}
-
-footer{
+.gift{
+font-size:90px;
 margin-top:40px;
-color:white;
-font-size:16px;
+cursor:pointer;
+}
+
+.treasure{
+font-size:40px;
+color:#ffd700;
+margin-top:30px;
+font-weight:bold;
 }
 
 </style>
@@ -138,48 +132,54 @@ font-size:16px;
 
 <body>
 
-<h1>🎂 Happy 1st Birthday Maryam 🎈</h1>
-
-<div class="container">
-
-<div class="cake">
-
-<div class="flame"></div>
-<div class="candle"></div>
-
-<div class="layer"></div>
-<div class="layer"></div>
-<div class="layer"></div>
-
+<div id="intro">
+✨ A Special Message For Maryam ✨
 </div>
+
+<div id="main">
+
+<h1>🎂 Happy Birthday Maryam 🎈</h1>
+
+<button onclick="showSurprise()">Tap for Surprise 🎁</button>
+
+<div id="surprise" class="hidden">
 
 <div class="message">
 
 <p><b>My dear little Maryam,</b></p>
 
-<p>Today you turn <b>one year old</b>. Right now you are too small to read this message, but one day you will… and when that day comes, I want you to know something very important.</p>
+<p>Today you turn <b>one year old</b>. You are too little to read this now, but one day you will.</p>
 
-<p>You were the <b>first little light</b> that entered our family and changed everything. From the moment you arrived, you filled our hearts with a happiness we had never felt before.</p>
+<p>You were the first little star who brought a beautiful happiness into our family.</p>
 
-<p>This message is not just for today. It is a small memory kept safe for the day when you grow up and read it yourself.</p>
+<p>From the moment you arrived, you filled our hearts with love.</p>
 
-<p><b>To your mother:</b> please keep this message safe for Maryam so that when she grows older, she will know that from her very first birthday she was deeply loved.</p>
+<p>May Allah bless your life with endless happiness and beautiful moments.</p>
 
-<p>Maryam, may Allah bless your life with endless happiness, kindness, and success. May your smile always light up the world around you.</p>
-
-<p><b>Happy 1st Birthday, our little princess 💖✨</b></p>
+<p><b>Happy 1st Birthday little princess 💖</b></p>
 
 </div>
 
-<button onclick="celebrate()">Tap for Birthday Surprise 🎉</button>
+<div class="animals">
+🐻 🐰 🐶 🐼 🦊 🐥
+</div>
+
+<button onclick="showGift()">Open the Treasure ✨</button>
 
 </div>
 
-<footer>
-Made with love for Maryam 💖
-</footer>
+<div id="giftBox" class="hidden">
+<div class="gift" onclick="openTreasure()">🎁</div>
+<p>Tap the gift</p>
+</div>
 
-<audio id="music" autoplay loop>
+<div id="treasure" class="hidden treasure">
+✨ She's One — Alhamdulillah ✨
+</div>
+
+</div>
+
+<audio id="music" loop>
 <source src="https://www2.cs.uic.edu/~i101/SoundFiles/HappyBirthday.mid">
 </audio>
 
@@ -187,22 +187,84 @@ Made with love for Maryam 💖
 
 <script>
 
-function celebrate(){
+/* show main page after intro */
+
+setTimeout(()=>{
+document.getElementById("main").style.display="block"
+launchConfetti()
+createBalloons()
+},4000)
+
+/* confetti */
+
+function launchConfetti(){
+
 confetti({
 particleCount:200,
-spread:80,
-origin:{y:0.6}
-});
-document.getElementById("music").play();
+spread:120,
+origin:{x:0,y:0.5}
+})
+
+confetti({
+particleCount:200,
+spread:120,
+origin:{x:1,y:0.5}
+})
+
 }
 
+/* balloons */
+
+function createBalloons(){
+
 for(let i=0;i<12;i++){
-let balloon=document.createElement("div");
-balloon.className="balloon";
-balloon.style.left=Math.random()*100+"%";
-balloon.style.background="hsl("+Math.random()*360+",70%,60%)";
-balloon.style.animationDuration=(6+Math.random()*5)+"s";
-document.body.appendChild(balloon);
+
+let balloon=document.createElement("div")
+balloon.className="balloon"
+balloon.style.left=Math.random()*100+"%"
+balloon.style.background="hsl("+Math.random()*360+",70%,60%)"
+balloon.style.animationDuration=(6+Math.random()*6)+"s"
+
+document.body.appendChild(balloon)
+
+}
+
+}
+
+/* surprise */
+
+function showSurprise(){
+
+document.getElementById("surprise").classList.remove("hidden")
+
+document.getElementById("music").play()
+
+confetti({
+particleCount:200,
+spread:90
+})
+
+}
+
+/* gift */
+
+function showGift(){
+
+document.getElementById("giftBox").classList.remove("hidden")
+
+}
+
+/* treasure */
+
+function openTreasure(){
+
+document.getElementById("treasure").classList.remove("hidden")
+
+confetti({
+particleCount:350,
+spread:140
+})
+
 }
 
 </script>
