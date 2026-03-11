@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy 1st Birthday Maryam 🎂</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+margin:0;
+font-family:'Poppins',sans-serif;
+background:linear-gradient(135deg,#ff9a9e,#fad0c4,#fad0c4,#ffd1ff);
+text-align:center;
+overflow-x:hidden;
+}
+
+h1{
+font-family:'Pacifico',cursive;
+font-size:55px;
+color:white;
+margin-top:40px;
+text-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+.container{
+max-width:850px;
+margin:auto;
+padding:20px;
+}
+
+.message{
+background:white;
+padding:35px;
+border-radius:25px;
+box-shadow:0 15px 40px rgba(0,0,0,0.2);
+font-size:20px;
+line-height:1.7;
+margin-top:30px;
+}
+
+.cake{
+margin-top:40px;
+position:relative;
+}
+
+.layer{
+width:200px;
+height:60px;
+background:#ff8fab;
+margin:auto;
+border-radius:10px;
+}
+
+.layer:nth-child(2){
+width:160px;
+background:#ffb3c6;
+}
+
+.layer:nth-child(3){
+width:120px;
+background:#ffc8dd;
+}
+
+.candle{
+width:10px;
+height:40px;
+background:white;
+margin:auto;
+position:relative;
+top:-5px;
+}
+
+.flame{
+width:15px;
+height:20px;
+background:orange;
+border-radius:50%;
+margin:auto;
+animation:flicker 0.5s infinite alternate;
+}
+
+@keyframes flicker{
+from{transform:scale(1);}
+to{transform:scale(1.2);}
+}
+
+.balloon{
+position:absolute;
+bottom:-100px;
+width:60px;
+height:80px;
+border-radius:50%;
+animation:float 10s infinite;
+}
+
+.balloon:after{
+content:'';
+position:absolute;
+width:2px;
+height:80px;
+background:#555;
+left:50%;
+top:80px;
+}
+
+@keyframes float{
+0%{transform:translateY(0);}
+100%{transform:translateY(-120vh);}
+}
+
+button{
+margin-top:25px;
+padding:15px 25px;
+border:none;
+border-radius:30px;
+font-size:18px;
+background:#ff4d6d;
+color:white;
+cursor:pointer;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+button:hover{
+transform:scale(1.05);
+}
+
+footer{
+margin-top:40px;
+color:white;
+font-size:16px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>🎂 Happy 1st Birthday Maryam 🎈</h1>
+
+<div class="container">
+
+<div class="cake">
+
+<div class="flame"></div>
+<div class="candle"></div>
+
+<div class="layer"></div>
+<div class="layer"></div>
+<div class="layer"></div>
+
+</div>
+
+<div class="message">
+
+<p><b>My dear little Maryam,</b></p>
+
+<p>Today you turn <b>one year old</b>. Right now you are too small to read this message, but one day you will… and when that day comes, I want you to know something very important.</p>
+
+<p>You were the <b>first little light</b> that entered our family and changed everything. From the moment you arrived, you filled our hearts with a happiness we had never felt before.</p>
+
+<p>This message is not just for today. It is a small memory kept safe for the day when you grow up and read it yourself.</p>
+
+<p><b>To your mother:</b> please keep this message safe for Maryam so that when she grows older, she will know that from her very first birthday she was deeply loved.</p>
+
+<p>Maryam, may Allah bless your life with endless happiness, kindness, and success. May your smile always light up the world around you.</p>
+
+<p><b>Happy 1st Birthday, our little princess 💖✨</b></p>
+
+</div>
+
+<button onclick="celebrate()">Tap for Birthday Surprise 🎉</button>
+
+</div>
+
+<footer>
+Made with love for Maryam 💖
+</footer>
+
+<audio id="music" autoplay loop>
+<source src="https://www2.cs.uic.edu/~i101/SoundFiles/HappyBirthday.mid">
+</audio>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+<script>
+
+function celebrate(){
+confetti({
+particleCount:200,
+spread:80,
+origin:{y:0.6}
+});
+document.getElementById("music").play();
+}
+
+for(let i=0;i<12;i++){
+let balloon=document.createElement("div");
+balloon.className="balloon";
+balloon.style.left=Math.random()*100+"%";
+balloon.style.background="hsl("+Math.random()*360+",70%,60%)";
+balloon.style.animationDuration=(6+Math.random()*5)+"s";
+document.body.appendChild(balloon);
+}
+
+</script>
+
+</body>
+</html>
